@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="h2_tab_connect">Подключение</string>
+    <string name="h2_tab_featured">VPS</string>
+    <string name="h2_tab_settings">Настройки</string>
+    <string name="h2_disconnected">Не подключено</string>
+    <string name="h2_connected">Защищённое подключение</string>
+    <string name="h2_connect">Подключиться</string>
+    <string name="h2_disconnect">Отключиться</string>
+    <string name="h2_ready">ГОТОВО</string>
+    <string name="h2_protocol_locked">Оптимальные параметры установлены автоматически</string>
+    <string name="h2_connection_info">Публичный IP</string>
+    <string name="h2_vps_title">Ваш VPS</string>
+    <string name="h2_vps_subtitle">Подготовьте сервер для H2 Rtc за один шаг</string>
+    <string name="h2_ssh_not_connected">SSH не подключён</string>
+    <string name="h2_vps_host">Адрес VPS</string>
+    <string name="h2_ssh_user">Пользователь SSH</string>
+    <string name="h2_install_connect">Установить Connect</string>
+    <string name="h2_install_note">Команда установки по умолчанию использует Telemost и VP8 channel.</string>
+    <string name="h2_install_command_copied">Команда установки скопирована</string>
+    <string name="h2_settings_title">Настройки</string>
+    <string name="h2_connection_settings">Настройки подключения</string>
+    <string name="h2_connection_settings_note">Профили, VPN-режим и маршрутизация</string>
+    <string name="h2_transport">Транспорт подключения</string>
     <string name="header_type">Обфускация заголовка</string>
     <string name="network">Сеть</string>
     <string name="security">Шифрование транспортного уровня</string>

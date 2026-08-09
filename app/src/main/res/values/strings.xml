@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">H2 Rtc</string>
+    <string name="h2_tab_connect">Connect</string>
+    <string name="h2_tab_featured">Featured</string>
+    <string name="h2_tab_settings">Settings</string>
+    <string name="h2_disconnected">Not connected</string>
+    <string name="h2_connected">Protected connection</string>
+    <string name="h2_connect">Connect</string>
+    <string name="h2_disconnect">Disconnect</string>
+    <string name="h2_ready">READY</string>
+    <string name="h2_protocol_locked">Optimized settings are set automatically</string>
+    <string name="h2_connection_info">Public IP</string>
+    <string name="h2_vps_title">Your VPS</string>
+    <string name="h2_vps_subtitle">Prepare the server for H2 Rtc in one step</string>
+    <string name="h2_ssh_not_connected">SSH is not connected</string>
+    <string name="h2_vps_host">VPS address</string>
+    <string name="h2_ssh_user">SSH user</string>
+    <string name="h2_install_connect">Install Connect</string>
+    <string name="h2_install_note">The installation command uses Telemost and VP8 channel by default.</string>
+    <string name="h2_install_command_copied">Installation command copied</string>
+    <string name="h2_settings_title">Settings</string>
+    <string name="h2_connection_settings">Connection settings</string>
+    <string name="h2_connection_settings_note">Profiles, VPN mode and routing</string>
+    <string name="h2_transport">Connection transport</string>
     <string name="project">Project</string>
     <string name="github">Source code</string>
     <string name="app_version">Version</string>

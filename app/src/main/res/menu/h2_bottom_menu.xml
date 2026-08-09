@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab_connect" android:icon="@drawable/ic_service_idle" android:title="@string/h2_tab_connect" />
+    <item android:id="@+id/tab_featured" android:icon="@drawable/ic_baseline_computer_24" android:title="@string/h2_tab_featured" />
+    <item android:id="@+id/tab_settings" android:icon="@drawable/ic_action_settings" android:title="@string/h2_tab_settings" />
+</menu>

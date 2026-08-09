@@ -117,6 +117,14 @@ class MainActivity : ThemedActivity(),
             binding.drawerLayout.removeView(binding.navView)
         }
         navigation.setNavigationItemSelectedListener(this)
+        binding.h2Tabs.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.tab_connect -> displayH2Fragment(H2ConnectFragment())
+                R.id.tab_featured -> displayH2Fragment(H2FeaturedFragment())
+                R.id.tab_settings -> displayH2Fragment(H2SettingsFragment())
+                else -> false
+            }
+        }
         if (resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL) {
             ViewCompat.setOnApplyWindowInsetsListener(navigation) { v, insets ->
                 val bars = insets.getInsets(
@@ -146,7 +154,7 @@ class MainActivity : ThemedActivity(),
         }
 
         if (savedInstanceState == null) {
-            displayFragmentWithId(R.id.nav_configuration)
+            binding.h2Tabs.selectedItemId = R.id.tab_connect
         }
 
         binding.fab.setOnClickListener {
@@ -371,6 +379,8 @@ class MainActivity : ThemedActivity(),
 
 
     fun displayFragment(fragment: ToolbarFragment) {
+        binding.h2Tabs.visibility = View.GONE
+        binding.stats.visibility = View.VISIBLE
         if (fragment !is LogcatFragment) {
             binding.fab.show()
         }
@@ -378,6 +388,21 @@ class MainActivity : ThemedActivity(),
             .replace(R.id.fragment_holder, fragment)
             .commitAllowingStateLoss()
         binding.drawerLayout.closeDrawers()
+    }
+
+    private fun displayH2Fragment(fragment: androidx.fragment.app.Fragment): Boolean {
+        binding.h2Tabs.visibility = View.VISIBLE
+        binding.stats.visibility = View.GONE
+        binding.fab.hide()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_holder, fragment)
+            .commitAllowingStateLoss()
+        binding.drawerLayout.closeDrawers()
+        return true
+    }
+
+    fun toggleH2Connection() {
+        if (state.canStop) SagerNet.stopService() else connect.launch(null)
     }
 
     fun displayFragmentWithId(@IdRes id: Int): Boolean {
@@ -429,6 +454,7 @@ class MainActivity : ThemedActivity(),
 
         binding.fab.changeState(state, this.state, animate)
         binding.stats.changeState(state)
+        (supportFragmentManager.findFragmentById(R.id.fragment_holder) as? H2ConnectFragment)?.render(state)
         if (msg != null) snackbar(msg).show()
         this.state = state
 

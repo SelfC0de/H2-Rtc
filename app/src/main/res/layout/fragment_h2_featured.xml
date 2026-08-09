@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/h2_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h2_vps_title" android:textColor="@color/h2_text" android:textSize="28sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/h2_vps_subtitle" android:textColor="@color/h2_muted" android:textSize="15sp" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:backgroundTint="@color/h2_surface" android:cardCornerRadius="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                <TextView android:id="@+id/ssh_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h2_ssh_not_connected" android:textColor="@color/h2_accent" android:textStyle="bold" />
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="@string/h2_vps_host">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/ssh_host" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri" android:textColor="@color/h2_text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="@string/h2_ssh_user">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/ssh_user" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/h2_text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/install_button" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="20dp" android:text="@string/h2_install_connect" android:backgroundTint="@color/h2_accent" android:textColor="@color/h2_background" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="@string/h2_install_note" android:textColor="@color/h2_muted" android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>

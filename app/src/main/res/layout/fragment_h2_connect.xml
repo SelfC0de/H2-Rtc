@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/h2_background" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:gravity="center_horizontal" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="H2 Rtc"
+            android:textColor="@color/h2_text" android:textSize="28sp" android:textStyle="bold" />
+        <TextView android:id="@+id/connection_status" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="@string/h2_disconnected" android:textColor="@color/h2_muted" android:textSize="16sp" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="40dp" android:layout_marginBottom="24dp" android:padding="24dp"
+            android:backgroundTint="@color/h2_surface" android:cardCornerRadius="24dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal" android:orientation="vertical">
+                <TextView android:id="@+id/connection_badge" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:background="@drawable/h2_status_badge" android:paddingHorizontal="14dp" android:paddingVertical="6dp"
+                    android:text="@string/h2_ready" android:textColor="@color/h2_accent" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp"
+                    android:text="Telemost · VP8 channel" android:textColor="@color/h2_text" android:textSize="20sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                    android:text="@string/h2_protocol_locked" android:textColor="@color/h2_muted" android:textSize="14sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/connect_button" android:layout_width="match_parent" android:layout_height="64dp"
+                    android:layout_marginTop="30dp" android:text="@string/h2_connect" android:textSize="17sp"
+                    android:textStyle="bold" android:backgroundTint="@color/h2_accent" android:textColor="@color/h2_background" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:backgroundTint="@color/h2_surface" android:cardCornerRadius="18dp" android:padding="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h2_connection_info" android:textColor="@color/h2_muted" android:textSize="13sp" />
+                <TextView android:id="@+id/ip_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="—"
+                    android:textColor="@color/h2_text" android:textSize="18sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

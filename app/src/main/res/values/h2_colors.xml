@@ -1,0 +1,7 @@
+<resources>
+    <color name="h2_background">#071313</color>
+    <color name="h2_surface">#102323</color>
+    <color name="h2_accent">#20D6C4</color>
+    <color name="h2_text">#F1FAF9</color>
+    <color name="h2_muted">#9AB2AF</color>
+</resources>
