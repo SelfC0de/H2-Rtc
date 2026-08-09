@@ -20,8 +20,8 @@ fun parseOLCRTC(url: String): OLCRTCBean {
         keyHex = link.queryParameter("key") ?: link.queryParameter("k") ?: ""
         dnsServer = link.queryParameter("dns") ?: link.queryParameter("d") ?: "77.88.8.8:53"
         transport = link.queryParameter("transport") ?: link.queryParameter("t") ?: OLCRTCBean.TRANSPORT_VP8CHANNEL
-        vp8Fps = (link.queryParameter("vp8_fps") ?: link.queryParameter("f"))?.toIntOrNull()?.takeIf { it > 0 } ?: 60
-        vp8BatchSize = (link.queryParameter("vp8_batch") ?: link.queryParameter("b"))?.toIntOrNull()?.takeIf { it > 0 } ?: 64
+        vp8Fps = 60
+        vp8BatchSize = 64
         keepaliveIntervalSec = (link.queryParameter("keepalive") ?: link.queryParameter("ka"))?.toIntOrNull() ?: 15
         // Server-issued client identifier; optional for backward compatibility
         // with URIs exported before the server-side S8 work landed.
@@ -90,8 +90,8 @@ fun parseOLCRTCJson(text: String): OLCRTCBean {
         authToken = json.optString("auth_token", "")
         keyHex = json.optString("key_hex", "")
         dnsServer = json.optString("dns_server", "77.88.8.8:53")
-        vp8Fps = json.optInt("vp8_fps", 60).takeIf { it > 0 } ?: 60
-        vp8BatchSize = json.optInt("vp8_batch", 64).takeIf { it > 0 } ?: 64
+        vp8Fps = 60
+        vp8BatchSize = 64
         keepaliveIntervalSec = json.optInt("keepalive_interval_sec", 15)
 
         validate()

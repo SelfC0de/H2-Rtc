@@ -68,22 +68,6 @@
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            android:defaultValue="60"
-            android:inputType="number"
-            app:icon="@drawable/ic_baseline_speed_24"
-            app:key="serverOlcrtcVp8Fps"
-            app:summary="@string/olcrtc_vp8_fps_summary"
-            app:title="@string/olcrtc_vp8_fps" />
-
-        <EditTextPreference
-            android:defaultValue="64"
-            android:inputType="number"
-            app:icon="@drawable/ic_baseline_speed_24"
-            app:key="serverOlcrtcVp8BatchSize"
-            app:summary="@string/olcrtc_vp8_batch_size_summary"
-            app:title="@string/olcrtc_vp8_batch_size" />
-
-        <EditTextPreference
             android:defaultValue="15"
             android:inputType="number"
             app:icon="@drawable/ic_service_idle"

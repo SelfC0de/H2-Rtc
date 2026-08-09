@@ -122,8 +122,8 @@ class OLCRTCExternalInstance(
 
         if (transport == OLCRTCBean.TRANSPORT_VP8CHANNEL) {
             Mobile.setVP8Options(
-                bean.vp8Fps.toLong(),
-                bean.vp8BatchSize.toLong(),
+                60,
+                64,
             )
         }
         Mobile.setLivenessOptions(10_000, 5_000, 3)

@@ -56,8 +56,6 @@ class OLCRTCSettingsActivity : ProfileSettingsActivity<OLCRTCBean>() {
         DataStore.serverOlcrtcAuthToken = authToken.orEmpty()
         DataStore.serverOlcrtcKeyHex = keyHex
         DataStore.serverOlcrtcDnsServer = dnsServer
-        DataStore.serverOlcrtcVp8Fps = vp8Fps
-        DataStore.serverOlcrtcVp8BatchSize = vp8BatchSize
         DataStore.serverOlcrtcKeepaliveInterval = keepaliveIntervalSec
     }
 
@@ -83,8 +81,8 @@ class OLCRTCSettingsActivity : ProfileSettingsActivity<OLCRTCBean>() {
         }
         keyHex = DataStore.serverOlcrtcKeyHex
         dnsServer = DataStore.serverOlcrtcDnsServer.ifEmpty { "77.88.8.8:53" }
-        vp8Fps = DataStore.serverOlcrtcVp8Fps
-        vp8BatchSize = DataStore.serverOlcrtcVp8BatchSize
+        vp8Fps = 60
+        vp8BatchSize = 64
         keepaliveIntervalSec = DataStore.serverOlcrtcKeepaliveInterval.let { if (it <= 0) 15 else it }
         serverAddress = "olcrtc"
         serverPort = 1
