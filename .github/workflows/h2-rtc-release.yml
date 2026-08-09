@@ -35,7 +35,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
         with:
-          gradle-version: wrapper
+          gradle-version: '9.5.0'
           cache-provider: basic
 
       - name: Set up Android SDK
@@ -53,8 +53,7 @@ jobs:
         run: |
           set -euo pipefail
           test -d "${ANDROID_HOME}/platforms/android-36"
-          chmod +x gradlew run
-          ./gradlew --version
+          gradle --version
 
       - name: Build native core
         env:
@@ -75,7 +74,7 @@ jobs:
           set -euo pipefail
           echo "sdk.dir=${ANDROID_HOME}" > local.properties
           keytool -genkeypair -keystore release.keystore -storepass "$KEYSTORE_PASS" -keypass "$ALIAS_PASS" -alias "$ALIAS_NAME" -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=H2 Rtc, OU=Mobile, O=H2 Rtc, L=Internet, ST=Internet, C=US"
-          ./gradlew --no-daemon --stacktrace :app:downloadAssets :app:assembleOssRelease
+          gradle --no-daemon --stacktrace :app:downloadAssets :app:assembleOssRelease
           mkdir -p dist
           cp app/build/outputs/apk/oss/release/*.apk "dist/H2 Rtc.apk"
 
