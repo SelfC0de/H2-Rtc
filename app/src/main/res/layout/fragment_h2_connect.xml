@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/h2_background" android:fillViewport="true">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -10,7 +11,7 @@
             android:layout_marginTop="8dp" android:text="@string/h2_disconnected" android:textColor="@color/h2_muted" android:textSize="16sp" />
         <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="40dp" android:layout_marginBottom="24dp" android:padding="24dp"
-            android:backgroundTint="@color/h2_surface" android:cardCornerRadius="24dp">
+            android:backgroundTint="@color/h2_surface" app:cardCornerRadius="24dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal" android:orientation="vertical">
                 <TextView android:id="@+id/connection_badge" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:background="@drawable/h2_status_badge" android:paddingHorizontal="14dp" android:paddingVertical="6dp"
@@ -25,7 +26,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:backgroundTint="@color/h2_surface" android:cardCornerRadius="18dp" android:padding="20dp">
+            android:backgroundTint="@color/h2_surface" app:cardCornerRadius="18dp" android:padding="20dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h2_connection_info" android:textColor="@color/h2_muted" android:textSize="13sp" />
                 <TextView android:id="@+id/ip_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="—"
