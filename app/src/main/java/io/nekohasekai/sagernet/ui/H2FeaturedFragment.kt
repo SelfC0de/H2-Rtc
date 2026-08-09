@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.button.MaterialButton
 import io.nekohasekai.sagernet.R
