@@ -1,0 +1,76 @@
+name: Build H2 Rtc APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-release:
+    name: Build signed Release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.25.9'
+          cache: false
+
+      - name: Set up Go Mobile
+        run: |
+          go install golang.org/x/mobile/cmd/gomobile@v0.0.0-20260410095206-2cfb76559b7b
+          go install golang.org/x/mobile/cmd/gobind@v0.0.0-20260410095206-2cfb76559b7b
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools platforms;android-36
+
+      - name: Set up Android NDK
+        id: ndk
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r29
+
+      - name: Build native core
+        env:
+          ANDROID_NDK_HOME: ${{ steps.ndk.outputs.ndk-path }}
+        run: |
+          set -euo pipefail
+          go clean -modcache || true
+          cd library/core/olcrtc_local && go mod download && go mod tidy && cd -
+          cd library/core && go mod download && go mod tidy && cd -
+          ./run lib core
+
+      - name: Build Release APK
+        env:
+          KEYSTORE_PASS: h2rtc-release
+          ALIAS_NAME: h2rtc
+          ALIAS_PASS: h2rtc-release
+        run: |
+          set -euo pipefail
+          echo "sdk.dir=${ANDROID_HOME}" > local.properties
+          keytool -genkeypair -keystore release.keystore -storepass "$KEYSTORE_PASS" -keypass "$ALIAS_PASS" -alias "$ALIAS_NAME" -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=H2 Rtc, OU=Mobile, O=H2 Rtc, L=Internet, ST=Internet, C=US"
+          ./gradlew :app:downloadAssets :app:assembleOssRelease
+          mkdir -p dist
+          cp app/build/outputs/apk/oss/release/*.apk "dist/H2 Rtc.apk"
+
+      - name: Upload H2 Rtc APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: H2-Rtc-Release
+          path: dist/H2 Rtc.apk
+          if-no-files-found: error
+          retention-days: 14
