@@ -81,7 +81,9 @@ jobs:
           keytool -genkeypair -keystore release.keystore -storepass "$KEYSTORE_PASS" -keypass "$ALIAS_PASS" -alias "$ALIAS_NAME" -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=H2 Rtc, OU=Mobile, O=H2 Rtc, L=Internet, ST=Internet, C=US"
           gradle --no-daemon --stacktrace :app:downloadAssets :app:assembleOssRelease
           mkdir -p dist
-          cp app/build/outputs/apk/oss/release/*.apk "dist/H2 Rtc.apk"
+          apk_path="$(find app/build/outputs/apk/oss/release -maxdepth 1 -type f -name '*universal*.apk' -print -quit)"
+          test -n "$apk_path"
+          cp "$apk_path" "dist/H2 Rtc.apk"
 
       - name: Upload H2 Rtc APK
         uses: actions/upload-artifact@v7
